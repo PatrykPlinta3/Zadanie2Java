@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	
+<h:head>
+	<title>Procent</title>
+</h:head>
+<h:body>
+<p:panel header="Podatek" style="margin: 1em auto; background-color:#AAAAFF" toggleable="true"  toggleSpeed="500"
+                closeSpeed="500" widgetVar="panel">
+	
+
+	<h:form id="bla">
+	<h:panelGrid id='grid' columns = '3' cellpadding='6'>
+  		
+  		<p:outputLabel for="x" value="Cena za jedną sztukę:"/>
+  		<p:inputText id="x" value="#{kredytBB.x}" required="true" requiredMessage="Brak Ceny"/>
+  		<p:message for = "x" />
+  		
+  		<p:outputLabel for="y" value="Ilość:"/>
+  		<p:inputText id = "y" value="#{kredytBB.y}" required="true" requiredMessage="Brak Ilości"/>
+		<p:message for = "y" />
+		
+		<p:outputLabel for="z" value="Podatek w procentach:"/>
+		<p:inputText id="z"  value="#{kredytBB.z}" required="true" requiredMessage="Brak Procentów"/>
+		<p:message for = "z" />
+		
+		<p:commandButton value="Oblicz wartość netto i brutto" action="#{kredytBB.calc()}" update = "msg"/>
+	</h:panelGrid>
+
+			
+		<p:messages id="msg" />
+	</h:form>
+</p:panel>
+</h:body>
+</html>
